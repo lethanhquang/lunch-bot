@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Order date:
+  = @order.order_date
+p
+  strong Description:
+  = @order.description
+
+= link_to 'Edit', edit_order_path(@order)
+'|
+= link_to 'Back', orders_path

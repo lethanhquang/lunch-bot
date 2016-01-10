@@ -1,0 +1,23 @@
+h1 Listing order_items
+
+table
+  thead
+    tr
+      th Username
+      th Dish
+      th
+      th
+      th
+
+  tbody
+    - @order_items.each do |order_item|
+      tr
+        td = order_item.username
+        td = order_item.dish
+        td = link_to 'Show', order_item
+        td = link_to 'Edit', edit_order_item_path(order_item)
+        td = link_to 'Destroy', order_item, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Order item', new_order_item_path

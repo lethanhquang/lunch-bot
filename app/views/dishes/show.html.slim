@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @dish.name
+p
+  strong Price:
+  = @dish.price
+
+= link_to 'Edit', edit_dish_path(@dish)
+'|
+= link_to 'Back', dishes_path
