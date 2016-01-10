@@ -3,6 +3,7 @@ h1 Listing dishes
 table
   thead
     tr
+      th Number
       th Name
       th Price
       th
@@ -12,6 +13,7 @@ table
   tbody
     - @dishes.each do |dish|
       tr
+        td = dish.item_number
         td = dish.name
         td = dish.price
         td = link_to 'Show', dish
