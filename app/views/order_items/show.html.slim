@@ -5,7 +5,7 @@ p
   = @order_item.username
 p
   strong Dish:
-  = @order_item.dish
+  = @order_item.dish.name
 
 = link_to 'Edit', edit_order_item_path(@order_item)
 '|

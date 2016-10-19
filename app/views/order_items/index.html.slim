@@ -13,7 +13,7 @@ table
     - @order_items.each do |order_item|
       tr
         td = order_item.username
-        td = order_item.dish
+        td = order_item.dish.name
         td = link_to 'Show', order_item
         td = link_to 'Edit', edit_order_item_path(order_item)
         td = link_to 'Destroy', order_item, data: {:confirm => 'Are you sure?'}, :method => :delete
