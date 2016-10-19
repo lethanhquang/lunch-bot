@@ -4,9 +4,9 @@ class SaveOrderItemService
   def self.call(info)
     return unless today_order
 
-    message = info["text"]
-    number = message.split("-").first.strip
-    description = message.split("-").second.strip
+    messages = info["text"].split("-")
+    number = messages.first ? messages.first.strip : 1
+    description = messages.second ? messages.second.strip : ""
 
     Dish.where(item_number: number).each do |dish|
       OrderItem.where(
@@ -30,6 +30,10 @@ class SaveOrderItemService
   end
 
   def self.today_order
-    Order.today.last
+    order = Order.today.last
+    if !order
+      order = Order.new(description: 'Lunch').save
+    end
+    order
   end
 end
