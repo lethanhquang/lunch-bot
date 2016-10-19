@@ -20,10 +20,12 @@ class LunchController < ApplicationController
   end
 
   def format_content
-      content = ["<!here> Menu for today"]
+      content = ["<!here> Yo! Menu for today"]
       Dish.today.each do |dish|
         content << "#{dish.item_number}. #{dish.name}"
       end
+        content << "\r\n"
+        content << "To order your lunch try `/order <number>`"
       content.join("\n")
   end
 
